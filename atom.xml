@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-12T11:38:38.793Z</updated>
+  <updated>2022-03-12T11:41:53.066Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacOS 下 PYQGIS 执行环境配置及算法运行示例</title>
+    <link href="http://example.com/2022/03/12/MacOS%20%E4%B8%8B%20PYQGIS%20%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%97%E6%B3%95%E8%BF%90%E8%A1%8C%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://example.com/2022/03/12/MacOS%20%E4%B8%8B%20PYQGIS%20%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%97%E6%B3%95%E8%BF%90%E8%A1%8C%E7%A4%BA%E4%BE%8B/</id>
+    <published>2022-03-12T11:41:04.000Z</published>
+    <updated>2022-03-12T11:41:53.066Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-动态库配置"><a href="#0-动态库配置" class="headerlink" title="0. 动态库配置"></a>0. 动态库配置</h2><h2 id="1-代码示例"><a href="#1-代码示例" class="headerlink" title="1. 代码示例"></a>1. 代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> qgis.core <span class="keyword">import</span> QgsApplication, QgsProviderRegistry</span><br><span class="line"><span class="keyword">from</span> plugins.processing.core.Processing <span class="keyword">import</span> Processing</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">OS 环境配置</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 关闭显示 QT 程序</span></span><br><span class="line">os.environ[<span class="string">&#x27;QT_QPA_PLATFORM&#x27;</span>] = <span class="string">&#x27;offscreen&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">MacOS PYQGIS 配置路径</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">MAC_OS_QIGS_PREFIX_PATH = <span class="string">&#x27;/Applications/QGIS-LTR.app/Contents/MacOS&#x27;</span></span><br><span class="line">MAC_OS_QGIS_PLUGINS_PATH = <span class="string">&#x27;/Applications/QGIS-LTR.app/Contents/Resources/python/plugins&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 PYQGIS 配置路径到系统路径</span></span><br><span class="line">sys.path.append(MAC_OS_QGIS_PLUGINS_PATH)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化 QgsApplication</span></span><br><span class="line">global_qgis_app = QgsApplication([], <span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 初始化 QGIS</span></span><br><span class="line">global_qgis_app.initQgis()</span><br><span class="line"><span class="comment"># 初始化 Processing</span></span><br><span class="line">Processing.initialize()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;0-动态库配置&quot;&gt;&lt;a href=&quot;#0-动态库配置&quot; class=&quot;headerlink&quot; title=&quot;0. 动态库配置&quot;&gt;&lt;/a&gt;0. 动态库配置&lt;/h2&gt;&lt;h2 id=&quot;1-代码示例&quot;&gt;&lt;a href=&quot;#1-代码示例&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    <category term="Geographic Information System" scheme="http://example.com/categories/Geographic-Information-System/"/>
+    
+    
+    <category term="QGIS" scheme="http://example.com/tags/QGIS/"/>
+    
+  </entry>
   
   <entry>
     <title>ts(MPEG2-TS) 视频文件无损转换 mp4(MPEG-4) 视频文件</title>
