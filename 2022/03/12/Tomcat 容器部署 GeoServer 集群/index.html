@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Z_Relax">
+    <meta name="author" content="Keep Team">
     
     <title>
         
             Tomcat 容器部署 GeoServer 集群 |
         
-        Z_Relax
+        Keep Theme
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.png">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#FA7268","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":null},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Alnwick11AtoZ's Blog" type="application/atom+xml">
@@ -49,7 +51,7 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                Z_Relax
+                Keep Theme
             </a>
         </div>
 
@@ -67,30 +69,6 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/categories"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                关于
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
                                href="/archives"
                             >
                                 归档
@@ -98,15 +76,9 @@
                         </li>
                     
                     
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
                 </ul>
             </div>
             <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -121,21 +93,6 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">标签</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">关于</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
@@ -168,11 +125,11 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.png">
+                    <img src="/images/avatar.svg">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Z_Relax</span>
+                        <span class="name">Keep Team</span>
                         
                             <span class="author-label">Lv1</span>
                         
@@ -211,14 +168,6 @@
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
-        </span>
     
     
 </div>
@@ -234,12 +183,7 @@
 <p><a class="link"   target="_blank" rel="noopener" href="https://docs.geoserver.org/2.19.x/en/user/index.html" >https://docs.geoserver.org/2.19.x/en/user/index.html<i class="fas fa-external-link-alt"></i></a></p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://docs.geoserver.org/2.19.x/en/user/community/jms-cluster/index.html" >https://docs.geoserver.org/2.19.x/en/user/community/jms-cluster/index.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<h4 id="2-2-结构图"><a href="#2-2-结构图" class="headerlink" title="2.2 结构图"></a>2.2 结构图</h4><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://docs.geoserver.org/2.19.x/en/user/_images/Schema.png"
-                      alt="Illustration  Clustering Solution for GeoServer"
-                ></p>
+<h4 id="2-2-结构图"><a href="#2-2-结构图" class="headerlink" title="2.2 结构图"></a>2.2 结构图</h4><p><img src="https://docs.geoserver.org/2.19.x/en/user/_images/Schema.png" alt="Illustration  Clustering Solution for GeoServer"></p>
 <h3 id="3-部署"><a href="#3-部署" class="headerlink" title="3 部署"></a>3 部署</h3><h4 id="3-1-版本信息"><a href="#3-1-版本信息" class="headerlink" title="3.1 版本信息"></a>3.1 版本信息</h4><table>
 <thead>
 <tr>
@@ -365,63 +309,6 @@
         
 
         
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;评论</i>
-    </div>
-    
-
-        
-            
-    <div id="gitalk-container"></div>
-    <script 
-            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script >
-
-        function loadGitalk() {
-            let __gitalk__pathname = decodeURI(location.pathname);
-            const __gitalk__pathnameLength = __gitalk__pathname.length;
-            const __gitalk__pathnameMaxLength = 50;
-            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
-                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
-            }
-
-            try {
-                Gitalk && new Gitalk({
-                    clientID: '349af932316901221080',
-                    clientSecret: 'e0fa996d70c8ad11e025bdd6b83fa3571b36d114',
-                    repo: 'Alnwick11AtoZ.github.io',
-                    owner: 'Alnwick11AtoZ',
-                    admin: ['Alnwick11AtoZ'],
-                    id: __gitalk__pathname,
-                    language: 'zh-CN'
-                }).render('gitalk-container');
-
-            } catch (e) {
-                window.Gitalk = null;
-            }
-        }
-
-        if ('false') {
-            const loadGitalkTimeout = setTimeout(() => {
-                loadGitalk();
-                clearTimeout(loadGitalkTimeout);
-            }, 1000);
-        } else {
-            window.addEventListener('DOMContentLoaded', loadGitalk);
-        }
-    </script>
-
-
-
-        
-    
-</div>
-
-            </div>
-        
     </div>
 </div>
 
@@ -437,10 +324,10 @@
         <div class="copyright-info info-item">
             &copy;
             
-              <span>2021</span>
+              <span>2020</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Z_Relax</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
         </div>
         
         <div class="theme-info info-item">
@@ -460,16 +347,8 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
 
         <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
         
     </ul>
 </div>
@@ -521,14 +400,6 @@
     </div>
 
     
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%80%BB%E4%BD%93%E6%8A%80%E6%9C%AF"><span class="nav-text">1 总体技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%98%E7%BD%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">2 官网介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%9B%B8%E5%85%B3%E9%A1%B5%E9%9D%A2"><span class="nav-text">2.1 相关页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-text">2.2 结构图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2"><span class="nav-text">3 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-text">3.1 版本信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Docker-%E9%83%A8%E7%BD%B2-Redis"><span class="nav-text">3.1 Docker 部署 Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Docker-%E9%83%A8%E7%BD%B2-ActiveMQ"><span class="nav-text">3.2 Docker 部署 ActiveMQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E9%83%A8%E7%BD%B2-JDK-8"><span class="nav-text">3.3 部署 JDK 8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E5%9C%A8-Tomcat-%E9%83%A8%E7%BD%B2-GeoServer-%E9%9B%86%E7%BE%A4"><span class="nav-text">3.4 在 Tomcat 部署 GeoServer 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-1-%E9%83%A8%E7%BD%B2-Tomcat"><span class="nav-text">3.4.1 部署 Tomcat</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-2-%E9%83%A8%E7%BD%B2-GeoServer"><span class="nav-text">3.4.2 部署 GeoServer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-3-GeoServer-%E5%AE%89%E8%A3%85-JMS-based-Clustering-%E6%8F%92%E4%BB%B6%EF%BC%88%E5%9F%BA%E4%BA%8E-JMS-%E7%9A%84%E9%9B%86%E7%BE%A4%E6%8F%92%E4%BB%B6%EF%BC%89"><span class="nav-text">3.4.3 GeoServer 安装 JMS based Clustering 插件（基于 JMS 的集群插件）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E9%80%9A%E8%BF%87-Redis-%E5%AE%9E%E7%8E%B0-Tomcat-%E7%9A%84-Session-%E5%85%B1%E4%BA%AB"><span class="nav-text">3.5 通过 Redis 实现 Tomcat 的 Session 共享</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-1-%E5%87%86%E5%A4%87-Tomcat-Clustering-Redis-Session-Manager"><span class="nav-text">3.5.1 准备 Tomcat Clustering Redis Session Manager</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-2-%E9%85%8D%E7%BD%AE-Tomcat-Clustering-Redis-Session-Manager"><span class="nav-text">3.5.2 配置 Tomcat Clustering Redis Session Manager</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-Docker-%E9%83%A8%E7%BD%B2-Nginx"><span class="nav-text">3.6 Docker 部署 Nginx</span></a></li></ol></li></ol>
-    </div>
-</div>
-        </aside>
-    
 
     <div class="image-viewer-container">
     <img src="">
@@ -536,57 +407,30 @@
 
 
     
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
 
 </main>
 
 
 
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
 
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
 
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
 
 
 <div class="post-scripts">
-    
-        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 
