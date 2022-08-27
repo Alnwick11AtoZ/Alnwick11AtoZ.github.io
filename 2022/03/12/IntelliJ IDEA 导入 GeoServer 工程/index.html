@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="Alnwick11AtoZ_">
     
     <title>
         
             IntelliJ IDEA 导入 GeoServer 工程 |
         
-        Keep Theme
+        Z_Relax
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-
+    <link rel="shortcut icon" href="/images/logo.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#FF6F61","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Alnwick11AtoZ's Blog" type="application/atom+xml">
@@ -32,6 +30,8 @@
 
 <body>
 <div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
     
@@ -51,7 +51,7 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                Keep Theme
+                Z_Relax
             </a>
         </div>
 
@@ -75,10 +75,40 @@
                             </a>
                         </li>
                     
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
                     
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -98,6 +128,21 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
                 </li>
             
         </ul>
@@ -125,13 +170,11 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/avatar.png">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Keep Team</span>
-                        
-                            <span class="author-label">Lv1</span>
+                        <span class="name">Alnwick11AtoZ_</span>
                         
                     </div>
                     <div class="meta-info">
@@ -168,6 +211,14 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>848 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
     
     
 </div>
@@ -189,15 +240,35 @@
 
 <h4 id="3-注释掉-org-geoserver-wcs-kvp-RangeSubsetKvpParser-java-下面的-org-geoserver-wcs-kvp-rangesubset-相关引用及-RangeSubsetKvpParserVisitor-静态类"><a href="#3-注释掉-org-geoserver-wcs-kvp-RangeSubsetKvpParser-java-下面的-org-geoserver-wcs-kvp-rangesubset-相关引用及-RangeSubsetKvpParserVisitor-静态类" class="headerlink" title="3. 注释掉 org/geoserver/wcs/kvp/RangeSubsetKvpParser.java 下面的 org.geoserver.wcs.kvp.rangesubset.* 相关引用及 RangeSubsetKvpParserVisitor 静态类"></a>3. 注释掉 <code>org/geoserver/wcs/kvp/RangeSubsetKvpParser.java</code> 下面的 <code>org.geoserver.wcs.kvp.rangesubset.*</code> 相关引用及 <code>RangeSubsetKvpParserVisitor</code> 静态类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* (c) 2014 Open Source Geospatial Foundation - all rights reserved</span></span><br><span class="line"><span class="comment"> * (c) 2001 - 2013 OpenPlans</span></span><br><span class="line"><span class="comment"> * This code is licensed under the GPL 2.0 license, available at the root</span></span><br><span class="line"><span class="comment"> * application directory.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> org.geoserver.wcs.kvp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.vfny.geoserver.wcs.WcsException.WcsExceptionCode.InvalidParameterValue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.StringReader;</span><br><span class="line"><span class="keyword">import</span> net.opengis.ows11.CodeType;</span><br><span class="line"><span class="keyword">import</span> net.opengis.ows11.Ows11Factory;</span><br><span class="line"><span class="keyword">import</span> net.opengis.wcs11.AxisSubsetType;</span><br><span class="line"><span class="keyword">import</span> net.opengis.wcs11.FieldSubsetType;</span><br><span class="line"><span class="keyword">import</span> net.opengis.wcs11.RangeSubsetType;</span><br><span class="line"><span class="keyword">import</span> net.opengis.wcs11.Wcs111Factory;</span><br><span class="line"><span class="keyword">import</span> org.geoserver.ows.KvpParser;</span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTAxisId;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTAxisSubset;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTFieldId;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTFieldSubset;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTInterpolation;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTKey;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.ASTRangeSubset;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.Node;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.RangeSubsetParser;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.RangeSubsetParserVisitor;</span></span><br><span class="line"><span class="comment">//import org.geoserver.wcs.kvp.rangesubset.SimpleNode;</span></span><br><span class="line"><span class="keyword">import</span> org.vfny.geoserver.wcs.WcsException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Parses the RangeSubset parameter of a GetFeature KVP request</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Andrea Aime</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RangeSubsetKvpParser</span> <span class="keyword">extends</span> <span class="title class_">KvpParser</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">RangeSubsetKvpParser</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="string">&quot;RangeSubset&quot;</span>, RangeSubsetType.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">parse</span><span class="params">(String value)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"><span class="comment">//        RangeSubsetParser parser = new RangeSubsetParser(new StringReader(value));</span></span><br><span class="line"><span class="comment">//        SimpleNode root = parser.RangeSubset();</span></span><br><span class="line"><span class="comment">//        RangeSubsetType result =</span></span><br><span class="line"><span class="comment">//                (RangeSubsetType) root.jjtAccept(new RangeSubsetKvpParserVisitor(), null);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        for (Object o : result.getFieldSubset()) &#123;</span></span><br><span class="line"><span class="comment">//            FieldSubsetType type = (FieldSubsetType) o;</span></span><br><span class="line"><span class="comment">//            String interpolationType = type.getInterpolationType();</span></span><br><span class="line"><span class="comment">//            if (interpolationType != null) &#123;</span></span><br><span class="line"><span class="comment">//                try &#123;</span></span><br><span class="line"><span class="comment">//                    InterpolationMethod.valueOf(interpolationType);</span></span><br><span class="line"><span class="comment">//                &#125; catch (IllegalArgumentException e) &#123;</span></span><br><span class="line"><span class="comment">//                    throw new WcsException(</span></span><br><span class="line"><span class="comment">//                            &quot;Unknown interpolation method &quot; + interpolationType,</span></span><br><span class="line"><span class="comment">//                            InvalidParameterValue,</span></span><br><span class="line"><span class="comment">//                            &quot;RangeSubset&quot;);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    private static class RangeSubsetKvpParserVisitor implements RangeSubsetParserVisitor &#123;</span></span><br><span class="line"><span class="comment">//        Wcs111Factory wcsf = Wcs111Factory.eINSTANCE;</span></span><br><span class="line"><span class="comment">//        Ows11Factory owsf = Ows11Factory.eINSTANCE;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        public Object visit(SimpleNode node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            throw new UnsupportedOperationException(&quot;This method should never be reached&quot;);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        @SuppressWarnings(&quot;unchecked&quot;) // EMF model without generics</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTRangeSubset node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            RangeSubsetType rs = wcsf.createRangeSubsetType();</span></span><br><span class="line"><span class="comment">//            for (int i = 0; i &lt; node.jjtGetNumChildren(); i++) &#123;</span></span><br><span class="line"><span class="comment">//                ASTFieldSubset fs = (ASTFieldSubset) node.jjtGetChild(i);</span></span><br><span class="line"><span class="comment">//                FieldSubsetType fst = (FieldSubsetType) fs.jjtAccept(this, data);</span></span><br><span class="line"><span class="comment">//                rs.getFieldSubset().add(fst);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//            return rs;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        @SuppressWarnings(&quot;unchecked&quot;) // EMF model without generics</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTFieldSubset node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            FieldSubsetType fs = wcsf.createFieldSubsetType();</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//            for (int i = 0; i &lt; node.jjtGetNumChildren(); i++) &#123;</span></span><br><span class="line"><span class="comment">//                Node child = node.jjtGetChild(i);</span></span><br><span class="line"><span class="comment">//                if (child instanceof ASTFieldId) &#123;</span></span><br><span class="line"><span class="comment">//                    CodeType id = owsf.createCodeType();</span></span><br><span class="line"><span class="comment">//                    id.setValue((String) child.jjtAccept(this, null));</span></span><br><span class="line"><span class="comment">//                    fs.setIdentifier(id);</span></span><br><span class="line"><span class="comment">//                &#125; else if (child instanceof ASTInterpolation) &#123;</span></span><br><span class="line"><span class="comment">//                    fs.setInterpolationType((String) child.jjtAccept(this, null));</span></span><br><span class="line"><span class="comment">//                &#125; else if (child instanceof ASTAxisSubset) &#123;</span></span><br><span class="line"><span class="comment">//                    fs.getAxisSubset().add(child.jjtAccept(this, null));</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//            return fs;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        @SuppressWarnings(&quot;unchecked&quot;) // EMF model without generics</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTAxisSubset node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            AxisSubsetType as = wcsf.createAxisSubsetType();</span></span><br><span class="line"><span class="comment">//            as.setIdentifier(((SimpleNode) node.jjtGetChild(0)).getContent());</span></span><br><span class="line"><span class="comment">//            for (int i = 1; i &lt; node.jjtGetNumChildren(); i++) &#123;</span></span><br><span class="line"><span class="comment">//                as.getKey().add(node.jjtGetChild(i).jjtAccept(this, null));</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//            return as;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTFieldId node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            return node.getContent();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTAxisId node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            return node.getContent();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTInterpolation node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            return node.getContent();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        @Override</span></span><br><span class="line"><span class="comment">//        public Object visit(ASTKey node, Object data) &#123;</span></span><br><span class="line"><span class="comment">//            return node.getContent();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-清除-IntelliJ-IDEA-缓存（也可以忽略此步直接启动项目）"><a href="#4-清除-IntelliJ-IDEA-缓存（也可以忽略此步直接启动项目）" class="headerlink" title="4. 清除 IntelliJ IDEA 缓存（也可以忽略此步直接启动项目）"></a>4. 清除 IntelliJ IDEA 缓存（也可以忽略此步直接启动项目）</h4><p><img src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308210903131.png" alt="image-20220308210903131"></p>
-<h4 id="5-编辑-org-geoserver-web-Start-java-启动配置"><a href="#5-编辑-org-geoserver-web-Start-java-启动配置" class="headerlink" title="5. 编辑 org/geoserver/web/Start.java 启动配置"></a>5. 编辑 <code>org/geoserver/web/Start.java</code> 启动配置</h4><p> <img src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308211131626.png" alt="image-20220308211131626"></p>
-<h4 id="6-提前-Build-Module-39-gs-web-sec-core-39"><a href="#6-提前-Build-Module-39-gs-web-sec-core-39" class="headerlink" title="6. 提前 Build Module &#39;gs-web-sec-core&#39;"></a>6. 提前 <code>Build Module &#39;gs-web-sec-core&#39;</code></h4><p><img src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308211838825.png" alt="image-20220308211838825"></p>
+<h4 id="4-清除-IntelliJ-IDEA-缓存（也可以忽略此步直接启动项目）"><a href="#4-清除-IntelliJ-IDEA-缓存（也可以忽略此步直接启动项目）" class="headerlink" title="4. 清除 IntelliJ IDEA 缓存（也可以忽略此步直接启动项目）"></a>4. 清除 IntelliJ IDEA 缓存（也可以忽略此步直接启动项目）</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308210903131.png"
+                      alt="image-20220308210903131"
+                ></p>
+<h4 id="5-编辑-org-geoserver-web-Start-java-启动配置"><a href="#5-编辑-org-geoserver-web-Start-java-启动配置" class="headerlink" title="5. 编辑 org/geoserver/web/Start.java 启动配置"></a>5. 编辑 <code>org/geoserver/web/Start.java</code> 启动配置</h4><p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308211131626.png"
+                      alt="image-20220308211131626"
+                ></p>
+<h4 id="6-提前-Build-Module-39-gs-web-sec-core-39"><a href="#6-提前-Build-Module-39-gs-web-sec-core-39" class="headerlink" title="6. 提前 Build Module &#39;gs-web-sec-core&#39;"></a>6. 提前 <code>Build Module &#39;gs-web-sec-core&#39;</code></h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308211838825.png"
+                      alt="image-20220308211838825"
+                ></p>
 <h4 id="7-运行-org-geoserver-web-Start-java-的-main-函数"><a href="#7-运行-org-geoserver-web-Start-java-的-main-函数" class="headerlink" title="7. 运行 org/geoserver/web/Start.java 的 main 函数"></a>7. 运行 <code>org/geoserver/web/Start.java</code> 的 <code>main</code> 函数</h4><ul>
 <li><p>控制台打印如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">三月 08, 2022 9:19:53 下午 org.geoserver.web.Start main</span><br><span class="line">严重: GeoServer startup complete in 9.755s</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>访问 <a class="link"   target="_blank" rel="noopener" href="http://localhost:8080/geoserver/web" >http://localhost:8080/geoserver/web<i class="fas fa-external-link-alt"></i></a> </p>
-<p><img src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308212257671.png" alt="image-20220308212257671"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Alnwick11AtoZ/cloud-img/main/img/image-20220308212257671.png"
+                      alt="image-20220308212257671"
+                ></p>
 </li>
 </ul>
 
@@ -238,6 +309,63 @@
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script 
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script >
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '53007a222fb0a5e1f9f8',
+                    clientSecret: '1026b95e8a2480a17ae2d1ecff04582963304a8a',
+                    repo: 'Alnwick11AtoZ.github.io',
+                    owner: 'Alnwick11AtoZ',
+                    admin: ['Alnwick11AtoZ'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('false') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -253,10 +381,10 @@
         <div class="copyright-info info-item">
             &copy;
             
-              <span>2020</span>
+              <span>2022</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alnwick11AtoZ_</a>
         </div>
         
         <div class="theme-info info-item">
@@ -276,8 +404,16 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -329,6 +465,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-%E5%85%8B%E9%9A%86-GeoServer-Git-%E4%BB%93%E5%BA%93"><span class="nav-text">0. 克隆 GeoServer Git 仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8A%A0%E8%BD%BD%E4%B8%BA-Maven-%E5%B7%A5%E7%A8%8B-%EF%BC%8C%E4%B8%94-Maven-Profile-%E5%85%A8%E9%83%A8%E4%B8%8D%E5%8B%BE%E9%80%89-%EF%BC%8C-%E5%B9%B6%E5%88%B7%E6%96%B0-Maven-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E7%A8%8B%E6%89%80%E9%9C%80%E4%BE%9D%E8%B5%96"><span class="nav-text">1. 加载为 Maven 工程 ，且 Maven Profile 全部不勾选 ， 并刷新 Maven 下载工程所需依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BB%99-org-geoserver-wcs-kvp-rangesubset-AbstractContentNode-java-%E6%B7%BB%E5%8A%A0-Node-%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-text">2. 给 org&#x2F;geoserver&#x2F;wcs&#x2F;kvp&#x2F;rangesubset&#x2F;AbstractContentNode.java 添加 Node 的引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B3%A8%E9%87%8A%E6%8E%89-org-geoserver-wcs-kvp-RangeSubsetKvpParser-java-%E4%B8%8B%E9%9D%A2%E7%9A%84-org-geoserver-wcs-kvp-rangesubset-%E7%9B%B8%E5%85%B3%E5%BC%95%E7%94%A8%E5%8F%8A-RangeSubsetKvpParserVisitor-%E9%9D%99%E6%80%81%E7%B1%BB"><span class="nav-text">3. 注释掉 org&#x2F;geoserver&#x2F;wcs&#x2F;kvp&#x2F;RangeSubsetKvpParser.java 下面的 org.geoserver.wcs.kvp.rangesubset.* 相关引用及 RangeSubsetKvpParserVisitor 静态类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B8%85%E9%99%A4-IntelliJ-IDEA-%E7%BC%93%E5%AD%98%EF%BC%88%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%BF%BD%E7%95%A5%E6%AD%A4%E6%AD%A5%E7%9B%B4%E6%8E%A5%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%EF%BC%89"><span class="nav-text">4. 清除 IntelliJ IDEA 缓存（也可以忽略此步直接启动项目）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%BC%96%E8%BE%91-org-geoserver-web-Start-java-%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="nav-text">5. 编辑 org&#x2F;geoserver&#x2F;web&#x2F;Start.java 启动配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%8F%90%E5%89%8D-Build-Module-39-gs-web-sec-core-39"><span class="nav-text">6. 提前 Build Module &#39;gs-web-sec-core&#39;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E8%BF%90%E8%A1%8C-org-geoserver-web-Start-java-%E7%9A%84-main-%E5%87%BD%E6%95%B0"><span class="nav-text">7. 运行 org&#x2F;geoserver&#x2F;web&#x2F;Start.java 的 main 函数</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -336,30 +480,57 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
 
 
 <div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 
