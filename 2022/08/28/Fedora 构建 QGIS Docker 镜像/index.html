@@ -9,7 +9,7 @@
     
     <title>
         
-            Debian 构建 QGIS Docker 镜像 |
+            Fedora 构建 QGIS Docker 镜像 |
         
         Z_Relax
     </title>
@@ -162,7 +162,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Debian 构建 QGIS Docker 镜像</span>
+            <span class="title-hover-animation">Fedora 构建 QGIS Docker 镜像</span>
         </div>
 
         
@@ -179,8 +179,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-08-28 15:15:12</span>
-        <span class="mobile">2022-08-28 15:15</span>
+        <span class="pc">2022-08-28 15:34:12</span>
+        <span class="mobile">2022-08-28 15:34</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -210,12 +210,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>389 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>159 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -227,7 +227,7 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="0-Dockerfile"><a href="#0-Dockerfile" class="headerlink" title="0. Dockerfile"></a>0. Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://packages.debian.org/search?keywords=qgis</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arg</span></span><br><span class="line"><span class="keyword">ARG</span> BASE_IMAGE_ARCH=<span class="string">&quot;amd64&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> $BASE_IMAGE_ARCH/debian:bullseye-backports</span><br><span class="line"></span><br><span class="line"><span class="comment"># authur</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;Alnwick11AtoZ &lt;alnwick11atoz@gmail.com&gt;&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># env</span></span><br><span class="line"><span class="keyword">ENV</span> DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai LANG=zh_CN.UTF-<span class="number">8</span> LC_ALL=zh_CN.UTF-<span class="number">8</span> LANGUAGE=zh_CN:zh</span><br><span class="line"></span><br><span class="line"><span class="comment"># base pkgs install</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    sed -i <span class="string">&#x27;s|deb.debian.org|mirrors.aliyun.com|g&#x27;</span> /etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">echo</span> <span class="string">&#x27;deb http://mirrors.aliyun.com/debian/ bullseye-backports main&#x27;</span> &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing locales tzdata curl &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    sed -i -e <span class="string">&quot;s/# <span class="variable">$LANG</span>.*/<span class="variable">$LANG</span> UTF-8/&quot;</span> /etc/locale.gen &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dpkg-reconfigure --frontend=noninteractive locales &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    update-locale LANG=<span class="variable">$LANG</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># qgis pkgs install</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    QGIS_VERSION=$(curl -s https://packages.debian.org/bullseye-backports/qgis | grep <span class="string">&#x27;Package: qgis&#x27;</span> | <span class="built_in">cut</span> -d <span class="string">&#x27;(&#x27;</span> -f 2 | <span class="built_in">tr</span> -d <span class="string">&#x27;)&#x27;</span>) &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing libqgis-customwidgets=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-qgis-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-providers-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-providers=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-qgis=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-plugin-grass-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-provider-grass=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-plugin-grass=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-dev python3-pyqt5.qtxmlpatterns python3-iniparse python3-kitchen python3-pycurl &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get autoremove &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists</span></span><br></pre></td></tr></table></figure>
+            <h2 id="0-Dockerfile"><a href="#0-Dockerfile" class="headerlink" title="0. Dockerfile"></a>0. Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://packages.fedoraproject.org/pkgs/qgis/qgis/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arg</span></span><br><span class="line"><span class="keyword">ARG</span> BASE_IMAGE_ARCH=<span class="string">&quot;amd64&quot;</span></span><br><span class="line"><span class="keyword">ARG</span> FEDORA_VER=<span class="number">35</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> $BASE_IMAGE_ARCH/fedora:$FEDORA_VER</span><br><span class="line"></span><br><span class="line"><span class="comment"># authur</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;Alnwick11AtoZ &lt;alnwick11atoz@gmail.com&gt;&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dnf mirror change</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    curl -o /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    curl -o /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># install qgis pkgs</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    dnf makecache &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf install -y qgis qgis-devel qgis-grass python3-qgis &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf install -y python3-iniparse python3-kitchen python3-pycurl python3-urlgrabber &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf clean all</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="1-构建参数"><a href="#1-构建参数" class="headerlink" title="1. 构建参数"></a>1. 构建参数</h2><table>
 <thead>
@@ -242,8 +242,13 @@
 <td>amd64</td>
 <td>基础镜像架构 [ amd64 &#x2F; arm64v8 ]</td>
 </tr>
+<tr>
+<td>FEDORA_VER</td>
+<td>35</td>
+<td>基础镜像版本 [ 35 &#x2F; 36 ]</td>
+</tr>
 </tbody></table>
-<h2 id="2-构建命令"><a href="#2-构建命令" class="headerlink" title="2. 构建命令"></a>2. 构建命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg BASE_IMAGE_ARCH=&quot;amd64&quot; -t qgis-debian-bullseye-backports:latest .</span><br></pre></td></tr></table></figure>
+<h2 id="2-构建命令"><a href="#2-构建命令" class="headerlink" title="2. 构建命令"></a>2. 构建命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg BASE_IMAGE_ARCH=&quot;amd64&quot; --build-arg FEDORA_VER=35 -t qgis-fedora-35:latest .</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -263,29 +268,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/08/28/Fedora%20%E6%9E%84%E5%BB%BA%20QGIS%20Docker%20%E9%95%9C%E5%83%8F/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Fedora 构建 QGIS Docker 镜像</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/08/26/MacOS%20%E4%B8%8B%20PYQGIS%20%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%97%E6%B3%95%E8%BF%90%E8%A1%8C%E7%A4%BA%E4%BE%8B/"
+                           href="/2022/08/28/Debian%20%E6%9E%84%E5%BB%BA%20QGIS%20Docker%20%E9%95%9C%E5%83%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">MacOS 下 PYQGIS 执行环境配置及算法运行示例</span>
+                                <span class="post-nav-title-item">Debian 构建 QGIS Docker 镜像</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

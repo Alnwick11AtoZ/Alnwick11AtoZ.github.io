@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-28T07:32:19.089Z</updated>
+  <updated>2022-08-28T08:49:43.325Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fedora 构建 QGIS Docker 镜像</title>
+    <link href="http://example.com/2022/08/28/Fedora%20%E6%9E%84%E5%BB%BA%20QGIS%20Docker%20%E9%95%9C%E5%83%8F/"/>
+    <id>http://example.com/2022/08/28/Fedora%20%E6%9E%84%E5%BB%BA%20QGIS%20Docker%20%E9%95%9C%E5%83%8F/</id>
+    <published>2022-08-28T07:34:12.000Z</published>
+    <updated>2022-08-28T08:49:43.325Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-Dockerfile"><a href="#0-Dockerfile" class="headerlink" title="0. Dockerfile"></a>0. Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://packages.fedoraproject.org/pkgs/qgis/qgis/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arg</span></span><br><span class="line"><span class="keyword">ARG</span> BASE_IMAGE_ARCH=<span class="string">&quot;amd64&quot;</span></span><br><span class="line"><span class="keyword">ARG</span> FEDORA_VER=<span class="number">35</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> $BASE_IMAGE_ARCH/fedora:$FEDORA_VER</span><br><span class="line"></span><br><span class="line"><span class="comment"># authur</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;Alnwick11AtoZ &lt;alnwick11atoz@gmail.com&gt;&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dnf mirror change</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    curl -o /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    curl -o /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># install qgis pkgs</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    dnf makecache &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf install -y qgis qgis-devel qgis-grass python3-qgis &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf install -y python3-iniparse python3-kitchen python3-pycurl python3-urlgrabber &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dnf clean all</span></span><br></pre></td></tr></table></figure><h2 id="1-构建参数"><a href="#1-构建参数" class="headerlink" title="1. 构建参数"></a>1. 构建参数</h2><table><thead><tr><th>参数</th><th>示例</th><th>注释</th></tr></thead><tbody><tr><td>BASE_IMAGE_ARCH</td><td>amd64</td><td>基础镜像架构 [ amd64 &#x2F; arm64v8 ]</td></tr><tr><td>FEDORA_VER</td><td>35</td><td>基础镜像版本 [ 35 &#x2F; 36 ]</td></tr></tbody></table><h2 id="2-构建命令"><a href="#2-构建命令" class="headerlink" title="2. 构建命令"></a>2. 构建命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg BASE_IMAGE_ARCH=&quot;amd64&quot; --build-arg FEDORA_VER=35 -t qgis-fedora-35:latest .</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;0-Dockerfile&quot;&gt;&lt;a href=&quot;#0-Dockerfile&quot; class=&quot;headerlink&quot; title=&quot;0. Dockerfile&quot;&gt;&lt;/a&gt;0. Dockerfile&lt;/h2&gt;&lt;figure class=&quot;highlight docker</summary>
+      
+    
+    
+    
+    <category term="Geographic Information System" scheme="http://example.com/categories/Geographic-Information-System/"/>
+    
+    
+    <category term="QGIS" scheme="http://example.com/tags/QGIS/"/>
+    
+  </entry>
   
   <entry>
     <title>Debian 构建 QGIS Docker 镜像</title>
