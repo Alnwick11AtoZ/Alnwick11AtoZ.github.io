@@ -9,7 +9,7 @@
     
     <title>
         
-            MacOS 下 PYQGIS 执行环境配置及算法运行示例 |
+            Debian 构建 QGIS Docker 镜像 |
         
         Z_Relax
     </title>
@@ -162,7 +162,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">MacOS 下 PYQGIS 执行环境配置及算法运行示例</span>
+            <span class="title-hover-animation">Debian 构建 QGIS Docker 镜像</span>
         </div>
 
         
@@ -179,8 +179,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-08-26 19:41:04</span>
-        <span class="mobile">2022-08-26 19:41</span>
+        <span class="pc">2022-08-28 15:15:12</span>
+        <span class="mobile">2022-08-28 15:15</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -210,12 +210,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>346 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>387 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -227,25 +227,23 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="0-相关资料"><a href="#0-相关资料" class="headerlink" title="0. 相关资料"></a>0. 相关资料</h2><ul>
-<li>QGIS Python API documentation: <a class="link"   target="_blank" rel="noopener" href="https://qgis.org/pyqgis/3.16/" >https://qgis.org/pyqgis/3.16/<i class="fas fa-external-link-alt"></i></a></li>
-<li>PyQGIS Developer Cookbook: <a class="link"   target="_blank" rel="noopener" href="https://docs.qgis.org/3.16/en/docs/pyqgis_developer_cookbook/" >https://docs.qgis.org/3.16/en/docs/pyqgis_developer_cookbook/<i class="fas fa-external-link-alt"></i></a></li>
-<li>QGIS User Guide: <a class="link"   target="_blank" rel="noopener" href="https://docs.qgis.org/3.16/en/docs/user_manual/" >https://docs.qgis.org/3.16/en/docs/user_manual/<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1. 环境配置"></a>1. 环境配置</h2><p>添加以下环境变量:</p>
-<table>
+            <h2 id="0-Dockerfile"><a href="#0-Dockerfile" class="headerlink" title="0. Dockerfile"></a>0. Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://packages.debian.org/search?keywords=qgis</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arg</span></span><br><span class="line"><span class="keyword">ARG</span> BASE_IMAGE_ARCH=<span class="string">&quot;amd64&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> $BASE_IMAGE_ARCH/debian:bullseye-backports</span><br><span class="line"></span><br><span class="line"><span class="comment"># authur</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;Alnwick11AtoZ &lt;alnwick11atoz@gmail.com&gt;&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># env</span></span><br><span class="line"><span class="keyword">ENV</span> DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai LANG=zh_CN.UTF-<span class="number">8</span> LC_ALL=zh_CN.UTF-<span class="number">8</span> LANGUAGE=zh_CN:zh</span><br><span class="line"></span><br><span class="line"><span class="comment"># base pkgs install</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    sed -i <span class="string">&#x27;s|deb.debian.org|mirrors.aliyun.com|g&#x27;</span> /etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">echo</span> <span class="string">&#x27;deb http://mirrors.aliyun.com/debian/ bullseye-backports main&#x27;</span> &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing locales tzdata curl &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    sed -i -e <span class="string">&quot;s/# <span class="variable">$LANG</span>.*/<span class="variable">$LANG</span> UTF-8/&quot;</span> /etc/locale.gen &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    dpkg-reconfigure --frontend=noninteractive locales &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    update-locale LANG=<span class="variable">$LANG</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># qgis pkgs install</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> \</span></span><br><span class="line"><span class="language-bash">    apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    QGIS_VERSION=$(curl -s https://packages.debian.org/bullseye-backports/qgis | grep <span class="string">&#x27;Package: qgis&#x27;</span> | <span class="built_in">cut</span> -d <span class="string">&#x27;(&#x27;</span> -f 2 | <span class="built_in">tr</span> -d <span class="string">&#x27;)&#x27;</span>) &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing libqgis-customwidgets=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-qgis-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-providers-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-providers=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-qgis=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-plugin-grass-common=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-provider-grass=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing qgis-plugin-grass=<span class="variable">$&#123;QGIS_VERSION&#125;</span> &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --fix-missing python3-dev python3-pyqt5.qtxmlpatterns python3-iniparse python3-kitchen python3-pycurl &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get autoremove &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-构建参数"><a href="#1-构建参数" class="headerlink" title="1. 构建参数"></a>1. 构建参数</h2><table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Value</th>
+<th>参数</th>
+<th>示例</th>
+<th>注释</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>DYLD_INSERT_LIBRARIES</td>
-<td>&#x2F;Applications&#x2F;QGIS-LTR.app&#x2F;Contents&#x2F;MacOS&#x2F;lib&#x2F;libsqlite3.dylib</td>
+<td>BASE_IMAGE_ARCH</td>
+<td>amd64</td>
+<td>基础镜像架构 [ amd64 &#x2F; arm64v8 ]</td>
 </tr>
 </tbody></table>
-<h2 id="2-代码示例"><a href="#2-代码示例" class="headerlink" title="2. 代码示例"></a>2. 代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> qgis.core <span class="keyword">import</span> QgsApplication, QgsProcessingContext, QgsProcessingFeedback, QgsVectorLayer</span><br><span class="line"><span class="keyword">from</span> plugins.processing.core.Processing <span class="keyword">import</span> Processing</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">OS 环境配置</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 关闭显示 QT 程序</span></span><br><span class="line">os.environ[<span class="string">&#x27;QT_QPA_PLATFORM&#x27;</span>] = <span class="string">&#x27;offscreen&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">MacOS PYQGIS 配置路径</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">MAC_OS_QIGS_PREFIX_PATH = <span class="string">&#x27;/Applications/QGIS-LTR.app/Contents/MacOS&#x27;</span></span><br><span class="line">MAC_OS_QGIS_PLUGINS_PATH = <span class="string">&#x27;/Applications/QGIS-LTR.app/Contents/Resources/python/plugins&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 PYQGIS 配置路径到系统路径</span></span><br><span class="line">sys.path.append(MAC_OS_QGIS_PLUGINS_PATH)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化 QgsApplication</span></span><br><span class="line">global_qgis_app = QgsApplication([], <span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 初始化 QGIS</span></span><br><span class="line">global_qgis_app.initQgis()</span><br><span class="line"><span class="comment"># 初始化 Processing</span></span><br><span class="line">Processing.initialize()</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">PYQGIS 算法运行</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 获得指定的算法运行器</span></span><br><span class="line">alg = global_qgis_app.processingRegistry().createAlgorithmById(<span class="string">&quot;native:centroids&quot;</span>)</span><br><span class="line"><span class="comment"># 构建参数</span></span><br><span class="line">parameters = <span class="built_in">dict</span>()</span><br><span class="line">parameters[<span class="string">&quot;INPUT&quot;</span>] = QgsVectorLayer(<span class="string">&quot;testdata/airports.shp&quot;</span>,<span class="string">&quot;layer name in qgis&quot;</span>,<span class="string">&quot;ogr&quot;</span>)</span><br><span class="line">parameters[<span class="string">&quot;OUTPUT&quot;</span>] = <span class="string">&quot;testdata/airports_center.shp&quot;</span></span><br><span class="line">parameters[<span class="string">&quot;ALL_PARTS&quot;</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">context = QgsProcessingContext()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 算法运行器参数校验</span></span><br><span class="line">flag, msg = alg.checkParamterValues(parameters, context)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当参数校验通过</span></span><br><span class="line"><span class="keyword">if</span> flag:</span><br><span class="line">    feedback = QgsProcessingFeedback()</span><br><span class="line">    <span class="comment"># var5 填入 False , 算法运行器运行失败抛出异常</span></span><br><span class="line">    result, flag = alg.run(parameters, context, feedback, &#123;&#125;, <span class="literal">False</span>)</span><br><span class="line">    <span class="comment"># 当算法运行器运行成功</span></span><br><span class="line">    <span class="keyword">if</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;alg run success , result is %s&quot;</span> % result)</span><br><span class="line"><span class="comment"># 当参数校验失败</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;check params fail cause %s&quot;</span> % msg)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-构建命令"><a href="#2-构建命令" class="headerlink" title="2. 构建命令"></a>2. 构建命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg BASE_IMAGE_ARCH=&quot;amd64&quot; -t qgis-debian:latest .</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -265,29 +263,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/08/28/Debian%20%E6%9E%84%E5%BB%BA%20QGIS%20Docker%20%E9%95%9C%E5%83%8F/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Debian 构建 QGIS Docker 镜像</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/08/23/Tomcat%20%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%20GeoServer%20%E9%9B%86%E7%BE%A4/"
+                           href="/2022/08/26/MacOS%20%E4%B8%8B%20PYQGIS%20%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%97%E6%B3%95%E8%BF%90%E8%A1%8C%E7%A4%BA%E4%BE%8B/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Tomcat 容器部署 GeoServer 集群</span>
+                                <span class="post-nav-title-item">MacOS 下 PYQGIS 执行环境配置及算法运行示例</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -398,7 +381,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="nav-text">0. 相关资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">1. 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-text">2. 代码示例</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Dockerfile"><span class="nav-text">0. Dockerfile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9E%84%E5%BB%BA%E5%8F%82%E6%95%B0"><span class="nav-text">1. 构建参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9E%84%E5%BB%BA%E5%91%BD%E4%BB%A4"><span class="nav-text">2. 构建命令</span></a></li></ol>
     </div>
 </div>
         </aside>
